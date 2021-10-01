@@ -1,6 +1,6 @@
 {
   "name": "signedsource-bot",
-  "version": "4.3.0",
+  "version": "4.6.1",
   "description": "SignedSource Community Official Bot",
   "main": "index.js",
   "repository": "https://github.com/signedsource/signedsource-bot",
