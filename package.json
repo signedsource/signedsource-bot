@@ -1,0 +1,23 @@
+{
+  "name": "signedsource-bot",
+  "version": "4.3.0",
+  "description": "SignedSource Community Official Bot",
+  "main": "index.js",
+  "repository": "https://github.com/signedsource/signedsource-bot",
+  "author": "SignedSource, Latitud's Dev",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "0.1.1-canary.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.1.0",
+    "graceful-fs": "^4.2.8",
+    "koa": "^2.13.3",
+    "node-fetch": "2.6.5",
+    "simple-json-db": "^1.2.3"
+  },
+  "devDependencies": {
+    "yarn": "^1.22.15"
+  }
+}
