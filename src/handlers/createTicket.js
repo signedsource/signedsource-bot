@@ -1,6 +1,5 @@
 const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
 const { roles, channels, messages } = require ("../data/config.json");
-const printf = require("../utils/strings/printf");
 const strjoin = require("../utils/strings/strjoin");
 
 const createTicket = async (interaction, ticketType) => {
