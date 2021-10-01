@@ -8,7 +8,7 @@ module.exports = {
         .setDescription("Add's up a activity to a channel")
         .addChannelOption(opt => opt
             .setName("channel")
-            .setDescription("The voice channel to add")
+            .setDescription("The voice channel that will be used for the activity")
             .setRequired(true))
         .addStringOption(opt => opt
             .setName("application")
