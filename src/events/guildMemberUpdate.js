@@ -1,6 +1,4 @@
-const { MessageEmbed } = require("discord.js");
-const { messages, channels, logos, roles } = require("../data/config.json");
-const printf = require("../utils/strings/printf");
+const { roles } = require("../data/config.json");
 
 module.exports = {
 	name: 'guildMemberUpdate',

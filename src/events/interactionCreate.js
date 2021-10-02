@@ -1,4 +1,3 @@
-const { MessageEmbed } = require("discord.js");
 const createTicket = require("../handlers/createTicket");
 const { roles } = require("../data/config.json");
 const { normalTicketButton, applyTicketButton, errorEmbed } = require("../utils/constants");
