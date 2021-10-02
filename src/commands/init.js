@@ -11,7 +11,8 @@ module.exports = {
         .setName('init')
         .setDescription('Initializes Verify & Ticket embeds'),
     async run(interaction) {
-        await interaction.deferReply();
+        await interaction.deferReply({ ephemeral: true });
+
         if (await validPermissions(interaction, "ADMINISTRATOR") || await validRole(interaction, roles.staff)) {
             const verificationChannel = interaction.client.channels.cache.find(c => c.id === channels.verification);
             const ticketsChannel = interaction.client.channels.cache.find(c => c.id === channels.tickets);
