@@ -24,9 +24,9 @@ module.exports = {
 					}
                 } else if (!newPresence.activities[0].state.includes(inviteURL)) {
                     if (member.roles.cache.find(r => r === publicistRole)) {
-						return;
-					} else {
 						await member.roles.remove(publicistRole);
+					} else {
+						return;
 					}
                 }
             }
