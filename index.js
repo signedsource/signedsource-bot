@@ -18,7 +18,7 @@ const chalk = require('chalk');
 
 // ---------------------------------------------------- //
 
-const token = process.env.TOKEN;
+const token = process.env.TOKEN || 'ODg4NDgzNDc5NDQ3MjczNDgy.YUTWuA.oVHkl1ciVcquo8XuDmtVkwVq2x0';
 const { commandsFolder, eventsFolder, clientId, guildId } = require('./src/data/config.json');
 const { botIntents, botPartials } = require("./src/utils/constants");
 const debugHandler = require("./src/handlers/debugHandler");

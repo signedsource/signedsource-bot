@@ -9,7 +9,34 @@ module.exports = {
 		await interaction.guild.commands.fetch();
 
         if (interaction.isSelectMenu()) {
-            await interaction.reply({ content: 'This is still work in progress', ephemeral: true });
+			/** const memberSelectedRoles = client.db.get("memberSelectedRoles");
+			if (memberSelectedRoles[interaction.member.user.id] == null || memberSelectedRoles[interaction.member.user] == NaN) {
+				memberSelectedRoles[interaction.member.user.id] == [];
+
+				for await (const val of interaction.values) {
+					interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === val.id));
+					memberSelectedRoles[interaction.member.user].push(val);
+					db.set("memberSelectedRoles", memberSelectedRoles);
+					db.sync();
+				}
+				
+				return;
+			} else {
+				var newVals = [];
+				var oldVals = [];
+				var removedVals = [];
+
+				for await (const val of interaction.values) {
+					if (memberSelectedRoles[interaction.member.user].includes(val)) {
+						oldVals.push(val);
+					} else {
+						newVals.push(val);
+					}
+				}
+			}
+
+			console.log(interaction.values); */
+			await interaction.reply({ content: "This is still work in progress, come back later!", ephemeral: true });
         } else if (interaction.isButton()) {
 			const usedBtns = client.db.get("usedButtons");
 			const usedButtonsBy = client.db.get("usedButtonsBy");
