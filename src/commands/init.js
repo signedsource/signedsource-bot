@@ -11,6 +11,7 @@ module.exports = {
         .setName('init')
         .setDescription('Initializes Verify & Ticket embeds'),
     async run(interaction) {
+        await interaction.deferReply();
         if (await validPermissions(interaction, "ADMINISTRATOR") || await validRole(interaction, roles.staff)) {
             const verificationChannel = interaction.client.channels.cache.find(c => c.id === channels.verification);
             const ticketsChannel = interaction.client.channels.cache.find(c => c.id === channels.tickets);
@@ -120,7 +121,7 @@ module.exports = {
             await ticketsChannel.send({ embeds: [ticketsEmbed], components: [ticketsButton] });
             await rolesChannel.bulkDelete(100);
             await rolesChannel.send({ embeds: [rolesEmbed], components: [rolesRow] })
-            await interaction.reply({ embeds: [completedEmbed], ephemeral: true });
+            await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
         } else {
             interaction.reply({
                 embeds: [constants.noPermsEmbed],
