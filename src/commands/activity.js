@@ -48,7 +48,7 @@ module.exports = {
                 await interaction.reply({ embeds: [ errorEmbed ], ephemeral: true })
             }
         } else {
-            // We won't get here, but who knows.
+            // We won't get here, but who knows. (actually we do, but when the PR gets aproved, we won't ever)
 
             const invalidChannelEmbed = new MessageEmbed()
                 .setTitle(":x: | Invalid channel")
@@ -56,7 +56,7 @@ module.exports = {
                 .setColor("RED")
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [ invalidChannelEmbed ]});
+            await interaction.reply({ embeds: [ invalidChannelEmbed ], ephemeral: true });
         }
     }
 }
