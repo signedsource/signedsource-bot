@@ -20,7 +20,8 @@
         "welcome": "888462553460654140",
 		"ticketsCategory": "888906855563272242",
 		"suggestions": "888537663085367337",
-		"commands": "889617163957203035"
+		"commands": "889617163957203035",
+		"roles": "888755997433294848"
     },
     "messages": {
         "botStarted": "Bot is up",
