@@ -14,13 +14,13 @@ module.exports = {
 		const vindex = verifiedMembers.indexOf(member.user.id);
 		const gindex = guildMembers.indexOf(member.user.id);
 
-		if (verifiedMembers.indexOf(member.user.id) > -1) {
+		if (verifiedMembers.indexOf(member.user.id) !== -1) {
 			verifiedMembers = verifiedMembers.splice(vindex, 1);
 			db.set("verifiedMembers", verifiedMembers);
 			db.sync();
 		}
 
-		if (guildMembers.indexOf(member.user.id) > -1) {
+		if (guildMembers.indexOf(member.user.id) !== -1) {
 			guildMembers = guildMembers.splice(gindex, 1);
 			db.set("guildMembers", guildMembers);
 			db.sync();

@@ -67,9 +67,17 @@ module.exports = {
                     await interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === roles.member));
 
 					const verifiedMembers = client.db.get("verifiedMembers");
-					if (verifiedMembers.indexOf(interaction.member.id) == -1) {
+					const guildMembers = client.db.get("guildMembers");
+
+					if (verifiedMembers.indexOf(interaction.member.id) === -1) {
 						verifiedMembers.push(interaction.member.id);
 						client.db.set("verifiedMembers", verifiedMembers);
+						client.db.sync();
+					}
+
+					if (guildMembers.indexOf(interaction.member.id) === -1) {
+						guildMembers.push(interaction.member.id);
+						client.db.set("guildMembers", guildMembers);
 						client.db.sync();
 					}
 					
