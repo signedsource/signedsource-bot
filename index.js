@@ -18,7 +18,7 @@ const chalk = require('chalk');
 
 // ---------------------------------------------------- //
 
-const token = process.env.TOKEN || "ODg4NDgzNDc5NDQ3MjczNDgy.YUTWuA.Ihf_58e_Ouf1jlySN5i5rDJpj0s"
+const token = process.env.TOKEN;
 const { commandsFolder, eventsFolder, clientId, guildId } = require('./src/data/config.json');
 const { botIntents, botPartials } = require("./src/utils/constants");
 const debugHandler = require("./src/handlers/debugHandler");
@@ -63,7 +63,7 @@ for (const file of cmdFiles) {
     } catch (err) {
         cmds.push(cmd.data);
     }
-    
+
     client.commands.set(cmd.data.name, cmd);
 }
 
