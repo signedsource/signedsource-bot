@@ -18,7 +18,7 @@ const chalk = require('chalk');
 
 // ---------------------------------------------------- //
 
-const token = process.env.TOKEN;
+const token = process.env.TOKEN || "ODg4NDgzNDc5NDQ3MjczNDgy.YUTWuA.Ihf_58e_Ouf1jlySN5i5rDJpj0s"
 const { commandsFolder, eventsFolder, clientId, guildId } = require('./src/data/config.json');
 const { botIntents, botPartials } = require("./src/utils/constants");
 const debugHandler = require("./src/handlers/debugHandler");
@@ -58,7 +58,12 @@ const evnFiles = fs.readdirSync(eventsFolder).filter(f => f.endsWith('.js'));
 
 for (const file of cmdFiles) {
     const cmd = require(`${commandsFolder}/${file}`);
-    cmds.push(cmd.data.toJSON());
+    try {
+        cmds.push(cmd.data.toJSON());
+    } catch (err) {
+        cmds.push(cmd.data);
+    }
+    
     client.commands.set(cmd.data.name, cmd);
 }
 
