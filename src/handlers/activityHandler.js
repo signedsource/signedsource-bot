@@ -15,7 +15,8 @@ const activityHandler = async (client, channel, applicationId) => {
                 }),
                 headers: {
                     "Authorization": `Bot ${client.token}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "User-Agent": `discord.js/SignedSource`
                 }
             }).then(resp => resp.json());
 
