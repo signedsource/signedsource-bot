@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const activityHandler = async (client, channel, applicationId) => {
     return new Promise((res, rej) => {
