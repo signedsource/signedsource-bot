@@ -30,7 +30,7 @@ module.exports = {
                 type: 7,
                 name: 'channel',
                 description: 'The voice channel that will be used for the activity',
-                channel_types: ["GUILD_VOICE"],
+                channel_types: [ 2 ],
                 required: true
             },
             {
