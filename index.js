@@ -41,7 +41,7 @@ client.db = new JSONdb('./src/data/db.json');
 var bumpTime;
 setInterval(() => {
 	bumpTime = client.db.get("bumpTime");
-	if (bumpTime >= Date.now()) {
+	if (bumpTime <= Date.now()) {
 		bumpTime = 0;
 		client.db.set("bumpTime", bumpTime)
 		client.db.sync();
