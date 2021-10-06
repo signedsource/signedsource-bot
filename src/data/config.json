@@ -75,12 +75,12 @@
 		"skipCrashOnPresenceUpdate": "Someone changed their presence, but the bot didn't like it, skipping crash",
 		"welcomeUserCommand": [
 			":flag_us: Hey! Hope you are having a great day!",
-			"As always, as you seem new to the server here you have some useful tips:\n",
+			"As always, let me give you some useful tips to get started in the server:\n",
 			"You should check <#888461544235622450> & <#888471817373761626> for better understanding of how the server works",
 			"(being the rules channel the most important one, as our moderation is based on that)",
 			"In case you want to apply to staff, or get support, don't hesitate to go to <#888901284952956989> and open a ticket\n\n",
 			":flag_es: Hey! Espero que estes teniendo un maravilloso día",
-			"Como siempre, pareces ser nuevo aquí, así que ten unos tips maravillosos para adentrarte en el servidor:\n",
+			"Como siempre, déjame darte unos tips para empezar en el servidor:\n",
 			"Deberías revisar <#888461544235622450> y <#888471817373761626> para entender mejor como funciona el servidor",
 			"(sobretodo el canal de reglas, el cual es el más importante, ya que nuestra moderación se basa de este)",
 			"En caso de que quieras postularte al staff, o obtener ayuda / soporte, no lo pienses 2 veces y ve al canal <#888901284952956989> y abre un ticket"
