@@ -9,25 +9,27 @@ module.exports = {
 		await interaction.guild.commands.fetch();
 
         if (interaction.isSelectMenu()) {
-			const asignableRoles = config.asignableRoles;
+			const asignableRoles = roles.asignableRoles;
 
 			for await (const role of asignableRoles) {
-				const rl = interaction.guild.roles.cache.find(r => r.id === role.id);
+				const rl = interaction.guild.roles.cache.find(r => r.id === role);
 
-				if (interaction.member.roles.cache.has(rl)) {
+				if (interaction.member.roles.cache.find(r => r.id == role)) {
 					interaction.member.roles.remove(rl);
-				} else {
-					return;
 				}
 			}
 
 			for await (const val of interaction.values) {
 				const rl = interaction.guild.roles.cache.find(r => r.id === val);
 
-				if (!interaction.member.roles.cache.has(rl)) {
-					interaction.member.roles.cache.add(rl);
+				if (!interaction.member.roles.cache.find(r => r.id == val)) {
+					interaction.member.roles.add(rl);
+				} else if (interaction.member.roles.cache.find(r => r.id == val)) {
+					interaction.member.roles.add(rl);
 				}
 			}
+
+			await interaction.reply({ content: 'Roles asigned.', ephemeral: true });
         } else if (interaction.isButton()) {
 			const usedBtns = client.db.get("usedButtons");
 			const usedButtonsBy = client.db.get("usedButtonsBy");
