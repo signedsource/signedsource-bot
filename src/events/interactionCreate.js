@@ -9,34 +9,25 @@ module.exports = {
 		await interaction.guild.commands.fetch();
 
         if (interaction.isSelectMenu()) {
-			/** const memberSelectedRoles = client.db.get("memberSelectedRoles");
-			if (memberSelectedRoles[interaction.member.user.id] == null || memberSelectedRoles[interaction.member.user] == NaN) {
-				memberSelectedRoles[interaction.member.user.id] == [];
+			const asignableRoles = config.asignableRoles;
 
-				for await (const val of interaction.values) {
-					interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === val.id));
-					memberSelectedRoles[interaction.member.user].push(val);
-					db.set("memberSelectedRoles", memberSelectedRoles);
-					db.sync();
-				}
-				
-				return;
-			} else {
-				var newVals = [];
-				var oldVals = [];
-				var removedVals = [];
+			for await (const role of asignableRoles) {
+				const rl = interaction.guild.roles.cache.find(r => r.id === role.id);
 
-				for await (const val of interaction.values) {
-					if (memberSelectedRoles[interaction.member.user].includes(val)) {
-						oldVals.push(val);
-					} else {
-						newVals.push(val);
-					}
+				if (interaction.member.roles.cache.has(rl)) {
+					interaction.member.roles.remove(rl);
+				} else {
+					return;
 				}
 			}
 
-			console.log(interaction.values); */
-			await interaction.reply({ content: "This is still work in progress, come back later!", ephemeral: true });
+			for await (const val of interaction.values) {
+				const rl = interaction.guild.roles.cache.find(r => r.id === val);
+
+				if (!interaction.member.roles.cache.has(rl)) {
+					interaction.member.roles.cache.add(rl);
+				}
+			}
         } else if (interaction.isButton()) {
 			const usedBtns = client.db.get("usedButtons");
 			const usedButtonsBy = client.db.get("usedButtonsBy");

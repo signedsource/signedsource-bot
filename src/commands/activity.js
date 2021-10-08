@@ -29,12 +29,8 @@ module.exports = {
             {
                 type: 7,
                 name: 'channel',
-                description: 'The voice channel that will be used for the activity',
-                /**
-                 * @class discord.js/typings/enums.d.ts
-                 */
-                
-                channel_types: [ 2 ],
+                description: 'The voice channel that will be used for the activity',                
+                channel_types: [ 2 /** 2 is Voice */ ],
                 required: true
             },
             {
@@ -44,6 +40,10 @@ module.exports = {
                 required: true,
                 choices: [
                     { name: 'Youtube Together', value: '755600276941176913' },
+                    { 
+                        name: 'Youtube Together (Development Release)', 
+                        value: '880218832743055411'
+                    },
                     { name: 'Fishington', value: '814288819477020702' },
                     {
                         name: 'Chess In The Park (Development Release)',
@@ -84,7 +84,7 @@ module.exports = {
                 await interaction.reply({ embeds: [errorEmbed], ephemeral: true })
             }
         } else {
-            // We won't get here, but who knows. (actually we do, but when the PR gets aproved, we won't ever)
+            // We won't get here, but who knows. (actually we do, but when the PR gets aproved, we won't ever, well now with the wacky workaround we don't get here)
 
             const invalidChannelEmbed = new MessageEmbed()
                 .setTitle(":x: | Invalid channel")

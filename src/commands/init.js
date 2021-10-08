@@ -45,52 +45,52 @@ module.exports = {
                         .addOptions([
                             {
                                 label: 'Ethical Hacker',
-                                value: 'ethical_hacker',
+                                value: '888512901562925066',
                                 emoji: '🔧'
                             },
                             {
                                 label: 'Pentester',
-                                value: 'pentester',
+                                value: '888514696104275968',
                                 emoji: '🪓'
                             },
                             {
                                 label: 'Cyber Security',
-                                value: 'cyber_security',
+                                value: '888513751932887041',
                                 emoji: '🔐'
                             },
                             {
                                 label: 'Game Dev',
-                                value: 'game_dev',
+                                value: '888543801587662878',
                                 emoji: '👾'
                             },
                             {
                                 label: 'Discord Bot Dev',
-                                value: 'discord_bot_dev',
+                                value: '888519273838944298',
                                 emoji: '⚙'
                             },
                             {
                                 label: 'Full-Stack',
-                                value: 'fullstack',
+                                value: '888510117157437461',
                                 emoji: '🥇'
                             },
                             {
                                 label: 'Back-End',
-                                value: 'backend',
+                                value: '888508286436012132',
                                 emoji: '👥'
                             },
                             {
                                 label: 'Front-End',
-                                value: 'frontend',
+                                value: '888505358807629824',
                                 emoji: '🎨'
                             },
                             {
                                 label: 'UX/UI',
-                                value: 'ux_ui',
+                                value: '888531035082600499',
                                 emoji: '📕'
                             },
                             {
                                 label: 'Graphic Designer',
-                                value: 'graphic_designer',
+                                value: '888512471554465802',
                                 emoji: '🎉'
                             }
                         ])
