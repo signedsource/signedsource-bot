@@ -18,7 +18,7 @@ module.exports = {
             .addChoice("Roles (Requires CEO)", "roles")
         .setRequired(true)),
     async run(interaction) {
-        const application = await interaction.options.get("application").value;
+        const application = await interaction.options.get("message").value;
         const verificationChannel = interaction.client.channels.cache.find(c => c.id === channels.verification);
         const ticketsChannel = interaction.client.channels.cache.find(c => c.id === channels.tickets);
         const rolesChannel = interaction.client.channels.cache.find(c => c.id === channels.roles);
