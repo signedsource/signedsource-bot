@@ -19,17 +19,13 @@ const chalk = require('chalk');
 // ---------------------------------------------------- //
 
 const token = process.env.TOKEN;
-const { commandsFolder, eventsFolder, clientId, guildId } = require('./src/data/config.json');
+const { commandsFolder, eventsFolder } = require('./src/data/config.json');
 const { botIntents, botPartials } = require("./src/utils/constants");
 const debugHandler = require("./src/handlers/debugHandler");
 const JSONdb = require('simple-json-db');
 
 const { Client, Collection } = require('discord.js');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-
 const client = new Client({ intents: botIntents, partials: botPartials });
-const rest = new REST({ version: '9' }).setToken(token);
 
 client.on("debug", debug => debugHandler(debug));
 client.on("warn", warn => console.log(`${chalk.yellow("[WARN]")} ${chalk.white(warn)}`));
@@ -75,18 +71,5 @@ for (const file of evnFiles) {
         client.on(evn.name, async (...args) => await evn.run(client, ...args));
     }
 }
-
-(async () => {
-    try {
-        await rest.put(
-            Routes.applicationGuildCommands(clientId, guildId),
-            { body: cmds },
-        );
-
-        console.log(`${chalk.blue("[INFO]")} ${chalk.white("Slash commands (/) have been registered")}`);
-    } catch (error) {
-        console.error(error);
-    }
-})();
 
 client.login(token);
