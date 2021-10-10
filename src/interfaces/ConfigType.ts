@@ -7,12 +7,12 @@ import { PathLike } from "fs";
 export default interface ConfigType extends Object {
     eventsFolder: PathLike,
     commandsFolder: PathLike,
+    clientId: string,
+    guildId: string
     inviteURL: string,
     version: string,
     roles: RolesList,
     logos: LogosList,
-    clientId: string,
-    guildId: string
     channels: ChannelsList,
     messages: MessagesList
 }

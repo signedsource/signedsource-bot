@@ -4,6 +4,32 @@ import ConfigType from "../interfaces/ConfigType.js";
 const config: ConfigType = {
     eventsFolder: path.join(__dirname, "..", "commands"),
     commandsFolder: path.join(__dirname, "..", "events"),
+    guildId: "888483479447273482",
+    clientId: "886754649741357109",
+    inviteURL: "dsc.gg/signedsource",
+    version: "5.0.0",
+    roles: {
+        member: "888495520820125716",
+        staff: "888484518191829093",
+        signedteam: "888487089623150633",
+        publicist: "890721592789835827",
+        ceo: "887083808992669766",
+        asignableRoles: [
+            "888512901562925066",
+			"888514696104275968",
+			"888513751932887041",
+			"888543801587662878",
+			"888519273838944298",
+			"888510117157437461",
+			"888508286436012132",
+			"888505358807629824",
+			"888531035082600499",
+			"888512471554465802"
+        ]
+    },
+    logos: {
+        default: "https://media.discordapp.net/attachments/888939883471728690/889189571382886490/SignedSourceLogo.png?width=302&height=294"
+    },
     channels: {
         verification: "888354587269009468",
         tickets: "888901284952956989",
