@@ -29,29 +29,36 @@ export default class Bot {
             logger.error(error);
         });
 
-        const cmds = [];
+        const cmds: Array<any> = [];
         const cmdFiles = fs.readdirSync(this.config.commandsFolder).filter(f => f.endsWith('.js'));
         const evnFiles = fs.readdirSync(this.config.eventsFolder).filter(f => f.endsWith('.js'));
 
         for (const file of cmdFiles) {
             const cmd = require(`${this.config.commandsFolder}/${file}`);
             try {
-                cmds.push(cmd.data.toJSON());
+                cmds.push(cmd.default.data.toJSON());
             } catch (err) {
-                cmds.push(cmd.data);
+                cmds.push(cmd.default.data);
             }
-        
+
             //@ts-ignore
-            this.client.commands.set(cmd.data.name, cmd);
+            this.client.commands.set(cmd.default.data.name, cmd);
         }
 
         for (const file of evnFiles) {
             const evn = require(`${this.config.eventsFolder}/${file}`);
-            if (evn.once) {
-                this.client.once(evn.name, async (...args) => await evn.run(...args));
+
+            if (evn.default.once) {
+                this.client.once(evn.default.name, async (...args) => {
+                    await evn.default.run(...args);
+                });
             } else {
-                this.client.on(evn.name, async (...args) => await evn.run(this.client, ...args));
+                this.client.on(evn.default.name, async (...args) => {
+                    await evn.default.run(this.client, ...args);
+                });
             }
         }
+
+        this.client.login(this.token);
     }
 }

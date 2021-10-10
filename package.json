@@ -8,7 +8,9 @@
   "private": false,
   "scripts": {
     "build": "npx tsc & cd dist & node app.js",
-    "start": "cd dist & node app.js"
+    "onlybuild": "npx tsc",
+    "start": "cd dist & node app",
+    "deploy": "cd dist & node deploy"
   },
   "dependencies": {
     "@discordjs/builders": "^0.6.0",

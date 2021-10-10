@@ -2,10 +2,12 @@ import path from "path";
 import ConfigType from "../interfaces/ConfigType.js";
 
 const config: ConfigType = {
-    eventsFolder: path.join(__dirname, "..", "commands"),
-    commandsFolder: path.join(__dirname, "..", "events"),
-    guildId: "888483479447273482",
-    clientId: "886754649741357109",
+    eventsFolder: path.join(__dirname, "..", "events"),
+    commandsFolder: path.join(__dirname, "..", "commands"),
+    eventsDistFolder: "./src/events",
+    commandsDistFolder: "./src/commands",
+    guildId: "886754649741357109",
+    clientId: "888483479447273482",
     inviteURL: "dsc.gg/signedsource",
     version: "5.0.0",
     roles: {

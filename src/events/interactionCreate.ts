@@ -2,6 +2,7 @@ import { Client } from "discord.js";
 import ticketHandler from "../handlers/TicketHandler";
 import config from "../utils/Config";
 import { applyTicketButton, errorEmbed, normalTicketButton } from "../utils/Constants";
+import logger from "../utils/Logger";
 
 export default {
     name: 'interactionCreate',
@@ -56,9 +57,9 @@ export default {
             if (!cmd) return;
 
             try {
-                await cmd.run(interaction);
+                await cmd.default.run(interaction);
             } catch (err) {
-                console.log(err);
+                logger.error(err);
                 return interaction.reply({
                     embeds: [errorEmbed],
                     ephemeral: true

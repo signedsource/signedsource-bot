@@ -7,6 +7,8 @@ import { PathLike } from "fs";
 export default interface ConfigType extends Object {
     eventsFolder: PathLike,
     commandsFolder: PathLike,
+    eventsDistFolder: string,
+    commandsDistFolder: string,
     clientId: string,
     guildId: string
     inviteURL: string,

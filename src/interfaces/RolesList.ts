@@ -1,4 +1,4 @@
-export default interface RolesList {
+export default interface RolesList extends Object {
     member: string,
     staff: string,
     signedteam: string,

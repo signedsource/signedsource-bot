@@ -17,7 +17,7 @@ const logger: Logger = winston.createLogger({
 
         if (log.level === 'info') return time + chalk.greenBright(`[${log.level.toUpperCase()}] `) + message;
 		else if (log.level === 'warn') return time + chalk.yellow(`[${log.level.toUpperCase()}] `) + message;
-		else if (log.level === 'error') return time + chalk.red(`[${log.level.toUpperCase()}]`) + message;
+		else if (log.level === 'error') return `${time} ${chalk.red(`[${log.level.toUpperCase()}]`)} ${message}`;
 		else if (log.level === 'debug') return time + chalk.blue(`[${log.level.toUpperCase()}]`) + message;
 		else return time + `[${log.level.toUpperCase()}]` + message;
     }),
