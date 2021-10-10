@@ -41,14 +41,14 @@ const config: ConfigType = {
     },
     messages: {
         botStarted: "Bot is up",
-        botStatus: "SignedSource %d - Official Bot",
+        botStatus: "SignedSource %s - Official Bot",
         notEnoughPermissions: "You don't have the necessary permissions to run this command or this command isn't capable of running in this channel",
         minimumOfDeletedMessages: "You must provide 1 or more messages to delete",
-        deletedMessages: "%d messages have been deleted.",
+        deletedMessages: "%s messages have been deleted.",
         welcomeTitle: "Welcome to SignedSource",
-        welcome: "Welcome %d! Read <#888461544235622450> and <#888471817373761626>, if you want to give yourself a role go to <#888755997433294848> for more info.",
+        welcome: "Welcome %s! Read <#888461544235622450> and <#888471817373761626>, if you want to give yourself a role go to <#888755997433294848> for more info.",
         goodbyeTitle: "Return soon!",
-        goodbye: "Bye %d :(, we hope you return soon",
+        goodbye: "Bye %s :(, we hope you return soon",
         supportTicketMessage: ":flag_es: Porfavor espera pacientemente a que un staff o miembro de SignedSource te atienda\n\n:flag_us: Please wait patiently until a staff or SignedSource member helps you",
         applyTicketMessage: ":flag_es: Porfavor, rellene las preguntas mencionadas en el siguiente mensaje para iniciar su postulación\n\n:flag_us: Please fill up the questions mentioned in the next message for initiating your apply.",
         questionsApply: [
@@ -77,7 +77,7 @@ const config: ConfigType = {
             "__***Your answers must be in Spanish (:flag_es:) or English (:flag_us:)***__"
         ],
         suggestionsEmbedTitle: "A new suggestion has been submited",
-        suggestionsEmbedDescription: "**From:** __%d__\n**Suggestion:** __%d__",
+        suggestionsEmbedDescription: "**From:** __%s__\n**Suggestion:** __%s__",
         suggestionSent: "Your suggestion has been sent!",
         noExecutedCommands: "The user hasn't run any slash commands",
         isntVerified: "The user isn't verified",
