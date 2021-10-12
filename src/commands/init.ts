@@ -1,38 +1,38 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageActionRow, MessageButton, MessageEmbed, MessageSelectMenu } = require('discord.js');
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, MessageSelectMenu, TextChannel } from "discord.js";
+import config from "../utils/Config";
+import { noPermsEmbed } from "../utils/Constants";
 
-const constants = require('../utils/constants');
-const { channels, roles } = require("../data/config.json");
-const validPermissions = require("../utils/validPermissions");
-const validRole = require("../utils/validRole");
-
-module.exports = {
+export default {
     data: new SlashCommandBuilder()
         .setName("init")
-        .setDescription("Init's a specific system message")
+        .setDescription("Inits a specific bot message.")
         .addStringOption(opt => opt
             .setName("message")
-            .setDescription("Select the system message to init")
+            .setDescription("Select the bot message to init")
             .addChoice("Verification", "verification")
             .addChoice("Tickets", "tickets")
             .addChoice("Roles (Requires CEO)", "roles")
-        .setRequired(true)),
-    async run(interaction) {
-        const application = await interaction.options.get("message").value;
-        const verificationChannel = interaction.client.channels.cache.find(c => c.id === channels.verification);
-        const ticketsChannel = interaction.client.channels.cache.find(c => c.id === channels.tickets);
-        const rolesChannel = interaction.client.channels.cache.find(c => c.id === channels.roles);
-        const completedEmbed = new MessageEmbed()
-            .setColor("GREEN")
+            .setRequired(true)),
+    run: async (interaction: CommandInteraction) => {
+        const application: (string | number | boolean) = interaction.options.get("message").value;
+        const verificationChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.verification) as TextChannel)
+        const ticketsChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.tickets) as TextChannel);
+        const rolesChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.roles) as TextChannel)
+        //@ts-ignore
+        const member: GuildMember = interaction.guild.members.cache.find((m: GuildMember) => m.id === interaction.member.id);
+        const completedEmbed: MessageEmbed = new MessageEmbed()
             .setTitle(":white_check_mark: | Done!")
-            .setDescription("The embeds have been sent!")
+            .setDescription("The message has been sent successfully")
+            .setColor("GREEN")
+            .setTimestamp();
 
         await interaction.deferReply({ ephemeral: true });
 
         switch (application) {
             case "verification":
-                if (await validPermissions(interaction, "ADMINISTRATOR") || await validRole(interaction, roles.staff)) {
-                    const verificationButton = new MessageActionRow()
+                if (member.permissions.has("ADMINISTRATOR") || member.roles.cache.find(r => r.id === config.roles.staff)) {
+                    const verificationButton: MessageActionRow = new MessageActionRow()
                         .addComponents(
                             new MessageButton()
                                 .setCustomId('verificationBtn')
@@ -41,25 +41,26 @@ module.exports = {
                                 .setStyle('SUCCESS')
                         );
 
-                    const verificationEmbed = new MessageEmbed()
+                    const verificationEmbed: MessageEmbed = new MessageEmbed()
                         .setColor('#EE0000')
                         .setTitle('Verify yourself')
                         .setDescription(':flag_es: Verificate para obtener acceso al resto del servidor, en caso de tener algun problema no dudes en mandarle un MD a los staffs!\n\n:flag_us: Verify yourself to gain access to the rest of the server, in case of having any problem verifying don\'t think twice, and DM a Staff');
-                    
+
                     await verificationChannel.bulkDelete(100);
                     await verificationChannel.send({ embeds: [verificationEmbed], components: [verificationButton] });
+                    //@ts-ignore
                     await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
                     break;
                 } else {
                     interaction.reply({
-                        embeds: [constants.noPermsEmbed],
+                        embeds: [ noPermsEmbed ],
                         ephemeral: true
                     });
                     break;
                 }
             case "tickets":
-                if (await validPermissions(interaction, "ADMINISTRATOR") || await validRole(interaction, roles.staff)) {
-                    const ticketsButton = new MessageActionRow()
+                if (member.permissions.has("ADMINISTRATOR") || member.roles.cache.find(r => r.id === config.roles.staff)) {
+                    const ticketsButton: MessageActionRow = new MessageActionRow()
                         .addComponents(
                             new MessageButton()
                                 .setCustomId('openTicketBtn')
@@ -68,25 +69,26 @@ module.exports = {
                                 .setStyle('PRIMARY')
                         );
 
-                    const ticketsEmbed = new MessageEmbed()
+                    const ticketsEmbed: MessageEmbed = new MessageEmbed()
                         .setColor('#EE0000')
                         .setTitle('Tickets')
                         .setDescription(':flag_es: Haz click abajo para abrir un ticket\n\n:flag_us: Click down below to open a Ticket');
 
                     await ticketsChannel.bulkDelete(100);
                     await ticketsChannel.send({ embeds: [ticketsEmbed], components: [ticketsButton] });
+                    //@ts-ignore
                     await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
                     break;
                 } else {
                     interaction.reply({
-                        embeds: [constants.noPermsEmbed],
+                        embeds: [ noPermsEmbed ],
                         ephemeral: true
-                    }); 
+                    });
                     break;
                 }
             case "roles":
-                if (await validPermissions(interaction, "ADMINISTRATOR") || await validRole(interaction, roles.ceo)) {
-                    const rolesRow = new MessageActionRow()
+                if (member.permissions.has("ADMINISTRATOR") || member.roles.cache.find(r => r.id === config.roles.ceo)) {
+                    const rolesRow: MessageActionRow = new MessageActionRow()
                         .addComponents(
                             new MessageSelectMenu()
                                 .setCustomId('roles')
@@ -146,18 +148,18 @@ module.exports = {
                                 ])
                         );
 
-                    const rolesEmbed = new MessageEmbed()
+                    const rolesEmbed: MessageEmbed = new MessageEmbed()
                         .setColor("#EE0000")
                         .setTitle("Roles")
                         .setDescription(":flag_es: Selecciona tus roles en dependencia de tus conocimientos\n\n:flag_us: Select your roles in dependance of your knowledge")
         
                     await rolesChannel.bulkDelete(100);
                     await rolesChannel.send({ embeds: [rolesEmbed], components: [rolesRow] });
+                    //@ts-ignore
                     await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
-                    break;
                 } else {
                     interaction.reply({
-                        embeds: [constants.noPermsEmbed],
+                        embeds: [ noPermsEmbed ],
                         ephemeral: true
                     });
                     break;

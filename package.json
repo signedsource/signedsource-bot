@@ -1,23 +1,37 @@
 {
   "name": "signedsource-bot",
-  "version": "4.7.2",
-  "description": "SignedSource Community Official Bot",
-  "main": "index.js",
+  "version": "5.0.0",
+  "main": "dist/app.js",
   "repository": "https://github.com/signedsource/signedsource-bot",
-  "author": "SignedSource, Latitud's Dev",
+  "author": "SignedSource & Latitud's Dev",
   "license": "GPL-3.0-or-later",
+  "private": false,
+  "scripts": {
+    "build": "npx tsc & cd dist & node app.js --no-warning",
+    "onlybuild": "npx tsc",
+    "start": "cd dist & node app --no-warning",
+    "deploy": "cd dist & node deploy"
+  },
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "0.1.1-canary.0",
+    "bufferutil": "^4.0.4",
     "chalk": "^4.1.2",
-    "discord-api-types": "^0.23.1",
-    "discord.js": "^13.2.0",
+    "discord-api-types": "0.24.0-next.b453d75.1633177682",
+    "discord.js": "13.3.0-dev.1633997110.d57ec7a",
     "graceful-fs": "^4.2.8",
     "koa": "^2.13.3",
-    "node-fetch": "3.0.0",
-    "simple-json-db": "^1.2.3"
+    "node-fetch": "^3.0.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "yarn": "^1.22.15"
+    "@types/chalk": "^2.2.0",
+    "@types/graceful-fs": "^4.1.5",
+    "@types/koa": "^2.13.4",
+    "@types/node": "^16.10.3",
+    "@types/node-fetch": "^3.0.3",
+    "@types/typescript": "^2.0.0",
+    "@types/winston": "^2.4.4",
+    "typescript": "4.5.0-dev.20211012"
   }
 }

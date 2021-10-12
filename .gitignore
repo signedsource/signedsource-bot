@@ -1,8 +1,2 @@
 node_modules/
-.breakpoints
-db.json
-.env
-package-lock.json
-.yarn
-.pnp.js
-yarn-error.log
+dist/
