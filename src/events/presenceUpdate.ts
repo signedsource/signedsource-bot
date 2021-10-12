@@ -1,6 +1,6 @@
 import { Client, Presence } from "discord.js";
-import config from "../utils/Config.js";
-import logger from "../utils/Logger.js";
+import config from "../utils/Config";
+import logger from "../utils/Logger";
 
 export default {
     name: 'presenceUpdate',

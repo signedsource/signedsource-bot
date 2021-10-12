@@ -1,5 +1,5 @@
 import path from "path";
-import ConfigType from "../interfaces/ConfigType.js";
+import ConfigType from "../interfaces/ConfigType";
 
 const config: ConfigType = {
     eventsFolder: path.join(__dirname, "..", "events"),

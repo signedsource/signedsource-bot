@@ -1,6 +1,6 @@
 import { Client, GuildMember, MessageEmbed } from "discord.js";
 import util from "node:util";
-import config from "../utils/Config.js";
+import config from "../utils/Config";
 
 export default {
     name: 'guildMemberAdd',

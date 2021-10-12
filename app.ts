@@ -1,6 +1,7 @@
 import Koa from 'koa';
-import logger from './src/utils/Logger.js';
+
 import Bot from './src/classes/Bot.js';
+import logger from './src/utils/Logger.js';
 
 (async () => {
     const app: Koa = new Koa();

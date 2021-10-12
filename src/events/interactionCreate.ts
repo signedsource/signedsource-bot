@@ -1,5 +1,5 @@
 import { Client } from "discord.js";
-import ticketHandler from "../handlers/TicketHandler";
+import Ticket from "../classes/Tickets";
 import config from "../utils/Config";
 import { applyTicketButton, errorEmbed, normalTicketButton } from "../utils/Constants";
 import logger from "../utils/Logger";
@@ -33,23 +33,23 @@ export default {
         } else if (interaction.isButton()) {
             switch (interaction.customId) {
                 case "verificationBtn":
-                    await interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === config.roles.member));
                     await interaction.deferUpdate();
+                    await interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === config.roles.member));
                     break;
                 case "openTicketBtn":
                     await interaction.reply({ content: 'Select one', components: [normalTicketButton, applyTicketButton], ephemeral: true });
                     break;
                 case "normalTicketBtn":
-                    await ticketHandler(interaction, "support");
                     await interaction.deferUpdate();
+                    new Ticket(interaction).create("support");
                     break;
                 case "applyTicketBtn":
-                    await ticketHandler(interaction, "apply");
                     await interaction.deferUpdate();
+                    new Ticket(interaction).create("apply");
                     break;
                 case "closeTicketBtn":
                     await interaction.deferUpdate();
-                    await interaction.channel.delete();
+                    new Ticket(interaction).delete(interaction.channel);
                     break;
             }
         } else if (interaction.isCommand()) {

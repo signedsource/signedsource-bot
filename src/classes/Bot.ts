@@ -2,7 +2,7 @@ import { Client, ClientOptions, Collection } from "discord.js";
 
 import { token, options } from "../utils/Constants";
 import logger from "../utils/logger";
-import config from "../utils/Config.js";
+import config from "../utils/Config";
 import ConfigType from "../interfaces/ConfigType";
 import fs from 'graceful-fs';
 
