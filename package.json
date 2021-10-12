@@ -7,10 +7,10 @@
   "license": "GPL-3.0-or-later",
   "private": false,
   "scripts": {
-    "build": "npx tsc & cd dist & node app.js --no-warning",
+    "build": "npx tsc && cd dist && npx node app.js --no-warning",
     "onlybuild": "npx tsc",
-    "start": "cd dist & node app --no-warning",
-    "deploy": "cd dist & node deploy"
+    "start": "cd dist && npx node app --no-warning",
+    "deploy": "cd dist && npx node deploy"
   },
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
@@ -32,6 +32,7 @@
     "@types/node-fetch": "^3.0.3",
     "@types/typescript": "^2.0.0",
     "@types/winston": "^2.4.4",
+    "node": "16",
     "typescript": "4.5.0-dev.20211012"
   }
 }

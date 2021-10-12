@@ -3,9 +3,9 @@ import { Routes } from "discord-api-types/v9";
 import fs from "graceful-fs";
 
 import config from "./src/utils/Config";
-import { token } from "./src/utils/Constants.js";
 import logger from "./src/utils/Logger.js";
 
+const token: string = process.env.TOKEN;
 const cmds: Array<any> = [];
 const cmdFiles = fs.readdirSync(config.commandsDistFolder).filter(f => f.endsWith('.js'));
 const rest = new REST({ version: '9' }).setToken(token);
