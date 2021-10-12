@@ -65,6 +65,16 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.2.0.tgz#667bfc6186ae7c9e0b45a08960c551437176e1ca"
   integrity sha512-VkE3KLBmJwcCaVARtQpfuKcKv8gcBmUubrfHGF84dXuuW6jgsRYxPtzcIhPyK9WAPpRt2/xY6zkD9MnRaJzSyw==
 
+"@types/@discordjs/builders":
+  version "0.6.0"
+  resolved "https://codeload.github.com/discordjs/builders/tar.gz/f6c187e0ad6ebe03e65186ece3e95cb1db5aeb50"
+  dependencies:
+    "@sindresorhus/is" "^4.0.1"
+    discord-api-types "^0.23.1"
+    ow "^0.27.0"
+    ts-mixer "^6.0.0"
+    tslib "^2.3.1"
+
 "@types/accepts@*":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@types/accepts/-/accepts-1.3.5.tgz#c34bec115cfc746e04fe5a059df4ce7e7b391575"
