@@ -11,6 +11,7 @@ export default class Activity {
     }
 
     async create(id: string | number | boolean, channel: GuildChannel | ThreadChannel | any) {
+
         return new Promise((res, rej) => {
             try {
                 const response = fetch(`https://discord.com/api/v9/channels/${channel.id}/invites`, {
