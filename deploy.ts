@@ -5,6 +5,7 @@ import fs from "graceful-fs";
 import config from "./src/utils/Config";
 import logger from "./src/utils/Logger.js";
 
+require('dotenv').config({ path: `${__dirname}/.env` });
 const token: string = process.env.TOKEN;
 const cmds: Array<any> = [];
 const cmdFiles = fs.readdirSync(config.commandsDistFolder).filter(f => f.endsWith('.js'));

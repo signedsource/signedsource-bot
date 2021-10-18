@@ -1,5 +1,6 @@
 import { ClientOptions, Intents, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
 import config from "./Config";
+require('dotenv').config({ path: `${__dirname}/../../.env` });
 
 export const token: string = process.env.TOKEN;
 export const options: ClientOptions = {

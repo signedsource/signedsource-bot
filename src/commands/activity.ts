@@ -4,42 +4,30 @@ import { Client, CommandInteraction, MessageEmbed } from "discord.js";
 import Activity from "../classes/Activity";
 
 export default {
-    data: {
-        name: 'activity',
-        description: "Add's up a activity to a channel",
-        options: [
-            {
-                type: 7,
-                name: 'channel',
-                description: 'The voice channel that will be used for the activity',
-                channel_types: [ChannelType.GuildVoice],
-                required: true
-            },
-            {
-                type: 3,
-                name: 'application',
-                description: 'Select the application to use',
-                required: true,
-                choices: [
-                    { name: 'Youtube Together', value: '755600276941176913' },
-                    {
-                        name: 'Youtube Together (Development Release)',
-                        value: '880218832743055411'
-                    },
-                    { name: 'Fishington', value: '814288819477020702' },
-                    {
-                        name: 'Chess In The Park (Development Release)',
-                        value: '832012586023256104'
-                    },
-                    { name: 'Betrayal', value: '773336526917861400' },
-                    { name: 'Poker Night', value: '755827207812677713' },
-                    { name: 'Letter Tile', value: '879863686565621790' },
-                    { name: 'Word Snack', value: '879863976006127627' },
-                    { name: 'Doodle Crew', value: '878067389634314250' }
-                ]
-            }
-        ]
-    },
+    date: new SlashCommandBuilder()
+        .setName("activity")
+        .setDescription("Add's up a activity to a channel")
+        .addChannelOption(opt => opt
+            .setName("channel")
+            .setDescription("The voice channel that will be used for the activity")
+            //@ts-ignore
+            .addChannelType(ChannelType.GuildVoice)
+            .setRequired(true))
+        .addStringOption(opt => opt
+            .setName("application")
+            .setDescription("Select the application to use")
+            .addChoice("Youtube Together", "755600276941176913")
+            .addChoice("Youtube Together (Development Release)", "880218832743055411")
+            .addChoice("Fishington", "814288819477020702")
+            .addChoice("Chess In The Park", "832012774040141894")
+            .addChoice("Chess In The Park (Development Release)", "832012586023256104")
+            .addChoice("Betrayal", "773336526917861400")
+            .addChoice("Poker Night", "755827207812677713")
+            .addChoice("Letter Tile", "879863686565621790")
+            .addChoice("Word Snack", "879863976006127627")
+            .addChoice("Doodle Crew", "")
+            .setRequired(true)
+        ),
     run: async (interaction: CommandInteraction) => {
         const client: Client = interaction.client;
         const channel = interaction.options.getChannel("channel");
