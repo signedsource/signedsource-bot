@@ -35,11 +35,7 @@ export default class Bot {
 
         for (const file of cmdFiles) {
             const cmd = require(`${this.config.commandsFolder}/${file}`);
-            try {
-                cmds.push(cmd.default.data.toJSON());
-            } catch (err) {
-                cmds.push(cmd.default.data);
-            }
+            cmds.push(cmd.default.data.toJSON());
 
             //@ts-ignore
             this.client.commands.set(cmd.default.data.name, cmd);

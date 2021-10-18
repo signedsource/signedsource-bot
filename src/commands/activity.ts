@@ -4,7 +4,7 @@ import { Client, CommandInteraction, MessageEmbed } from "discord.js";
 import Activity from "../classes/Activity";
 
 export default {
-    date: new SlashCommandBuilder()
+    data: new SlashCommandBuilder()
         .setName("activity")
         .setDescription("Add's up a activity to a channel")
         .addChannelOption(opt => opt
@@ -25,7 +25,7 @@ export default {
             .addChoice("Poker Night", "755827207812677713")
             .addChoice("Letter Tile", "879863686565621790")
             .addChoice("Word Snack", "879863976006127627")
-            .addChoice("Doodle Crew", "")
+            .addChoice("Doodle Crew", "878067389634314250")
             .setRequired(true)
         ),
     run: async (interaction: CommandInteraction) => {

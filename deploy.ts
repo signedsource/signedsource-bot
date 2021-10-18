@@ -15,11 +15,7 @@ const rest = new REST({ version: '9' }).setToken(token);
     try {
         for await (const file of cmdFiles) {
             const cmd = require(`${config.commandsDistFolder}/${file}`);
-            try {
-                cmds.push(cmd.default.data.toJSON());
-            } catch (err) {
-                cmds.push(cmd.default.data);
-            }
+            cmds.push(cmd.default.data.toJSON());
         }
 
         await rest.put(
