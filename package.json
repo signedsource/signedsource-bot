@@ -1,6 +1,6 @@
 {
   "name": "signedsource-bot",
-  "version": "5.0.0",
+  "version": "5.2.1",
   "main": "dist/app.js",
   "repository": "https://github.com/signedsource/signedsource-bot",
   "author": "SignedSource & Latitud's Dev",

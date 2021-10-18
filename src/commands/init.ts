@@ -12,13 +12,15 @@ export default {
             .setDescription("Select the bot message to init")
             .addChoice("Verification", "verification")
             .addChoice("Tickets", "tickets")
+            .addChoice("Private Voices", "privatevoice")
             .addChoice("Roles (Requires CEO)", "roles")
             .setRequired(true)),
     run: async (interaction: CommandInteraction) => {
         const application: (string | number | boolean) = interaction.options.get("message").value;
         const verificationChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.verification) as TextChannel)
         const ticketsChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.tickets) as TextChannel);
-        const rolesChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.roles) as TextChannel)
+        const rolesChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.roles) as TextChannel);
+        const privateVoiceChannel = (interaction.guild.channels.cache.find(c => c.id === config.channels.privateVoice) as TextChannel);
         //@ts-ignore
         const member: GuildMember = interaction.guild.members.cache.find((m: GuildMember) => m.id === interaction.member.id);
         const completedEmbed: MessageEmbed = new MessageEmbed()
@@ -148,6 +150,34 @@ export default {
                     await rolesChannel.send({ embeds: [rolesEmbed], components: [rolesRow] });
                     //@ts-ignore
                     await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
+                } else {
+                    interaction.reply({
+                        embeds: [ noPermsEmbed ],
+                        ephemeral: true
+                    });
+                    break;
+                }
+            case "privatevoice":
+                if (member.permissions.has("ADMINISTRATOR") || member.roles.cache.find(r => r.id === config.roles.staff)) {
+                    const privateVoiceEmbed: MessageEmbed = new MessageEmbed()
+                        .setColor('#EE0000')
+                        .setTitle('Private Voices')
+                        .setDescription(':flag_es: Haz click abajo para crear tú voz privada\n\n:flag_us: Click down below to create your private voice channel');
+
+                    const privateVoiceButton: MessageActionRow = new MessageActionRow()
+                        .addComponents(
+                            new MessageButton()
+                                .setCustomId('privateVoiceBtn')
+                                .setLabel('Create Voice')
+                                .setEmoji('<:discord_voice_from_VEGA:899709000113868920>')
+                                .setStyle('PRIMARY')
+                        );
+
+                    await privateVoiceChannel.bulkDelete(100);
+                    await privateVoiceChannel.send({ embeds: [privateVoiceEmbed], components: [privateVoiceButton] });
+                    //@ts-ignore
+                    await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
+                    break;
                 } else {
                     interaction.reply({
                         embeds: [ noPermsEmbed ],

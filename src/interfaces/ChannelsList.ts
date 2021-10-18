@@ -5,5 +5,7 @@ export default interface ChannelsList extends Object {
     ticketsCategory: string,
     suggestions: string,
     commands: string,
-    roles: string
+    roles: string,
+    privateVoice: string,
+    privateVoiceCategory: string
 }

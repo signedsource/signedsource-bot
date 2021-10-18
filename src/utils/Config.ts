@@ -9,7 +9,7 @@ const config: ConfigType = {
     guildId: "886754649741357109",
     clientId: "888483479447273482",
     inviteURL: "dsc.gg/signedsource",
-    version: "5.0.0",
+    version: "5.2.1",
     roles: {
         member: "888495520820125716",
         staff: "888484518191829093",
@@ -39,7 +39,9 @@ const config: ConfigType = {
         ticketsCategory: "888906855563272242",
         suggestions: "888537663085367337",
         commands: "889617163957203035",
-        roles: "888755997433294848"
+        roles: "888755997433294848",
+        privateVoice: "898977183710740571",
+        privateVoiceCategory: "898976746035105813"
     },
     messages: {
         botStarted: "Bot is up",
