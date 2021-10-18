@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, GuildMember, MessageActionRow, MessageButton, MessageEmbed, MessageSelectMenu, TextChannel } from "discord.js";
 import config from "../utils/Config";
-import { noPermsEmbed } from "../utils/Constants";
+import { applyTicketButton, noPermsEmbed, normalTicketButton } from "../utils/Constants";
 
 export default {
     data: new SlashCommandBuilder()
@@ -60,22 +60,13 @@ export default {
                 }
             case "tickets":
                 if (member.permissions.has("ADMINISTRATOR") || member.roles.cache.find(r => r.id === config.roles.staff)) {
-                    const ticketsButton: MessageActionRow = new MessageActionRow()
-                        .addComponents(
-                            new MessageButton()
-                                .setCustomId('openTicketBtn')
-                                .setLabel("Open Ticket")
-                                .setEmoji('📩')
-                                .setStyle('PRIMARY')
-                        );
-
                     const ticketsEmbed: MessageEmbed = new MessageEmbed()
                         .setColor('#EE0000')
                         .setTitle('Tickets')
                         .setDescription(':flag_es: Haz click abajo para abrir un ticket\n\n:flag_us: Click down below to open a Ticket');
 
                     await ticketsChannel.bulkDelete(100);
-                    await ticketsChannel.send({ embeds: [ticketsEmbed], components: [ticketsButton] });
+                    await ticketsChannel.send({ embeds: [ticketsEmbed], components: [normalTicketButton, applyTicketButton] });
                     //@ts-ignore
                     await interaction.editReply({ embeds: [completedEmbed], ephemeral: true });
                     break;

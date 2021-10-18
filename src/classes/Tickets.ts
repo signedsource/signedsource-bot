@@ -94,6 +94,6 @@ export default class Ticket {
     }
 
     delete(channel: GuildChannel) {
-
+        channel.delete();
     }
 }

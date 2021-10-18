@@ -36,9 +36,6 @@ export default {
                     await interaction.deferUpdate();
                     await interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === config.roles.member));
                     break;
-                case "openTicketBtn":
-                    await interaction.reply({ content: 'Select one', components: [normalTicketButton, applyTicketButton], ephemeral: true });
-                    break;
                 case "normalTicketBtn":
                     await interaction.deferUpdate();
                     new Ticket(interaction).create("support");
