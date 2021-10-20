@@ -162,7 +162,7 @@ export default {
                     const privateVoiceEmbed: MessageEmbed = new MessageEmbed()
                         .setColor('#EE0000')
                         .setTitle('Private Voices')
-                        .setDescription(':flag_es: Haz click abajo para crear tú voz privada\n\n:flag_us: Click down below to create your private voice channel');
+                        .setDescription(':flag_es: Haz click abajo para crear tu canal de voz privado\n\n:flag_us: Click down below to create your private voice channel');
 
                     const privateVoiceButton: MessageActionRow = new MessageActionRow()
                         .addComponents(
