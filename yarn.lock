@@ -459,10 +459,10 @@ destroy@^1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
-discord-api-types@0.25.0-next.a507765.1634560226:
-  version "0.25.0-next.a507765.1634560226"
-  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.25.0-next.a507765.1634560226.tgz#bc1b919e27d023268984ba699082d5dfb1c3842f"
-  integrity sha512-lNaG2RjVTSCZmKtD4fVu6rwKUuPycXNJsP1A7kUBQRqSrG9r8pkX+B0SXJSo1El5ShWYNfBfXp+To/ofb/wm0A==
+discord-api-types@0.25.0-next.a507765.1634733108:
+  version "0.25.0-next.a507765.1634733108"
+  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.25.0-next.a507765.1634733108.tgz#03ba6d0f6ed99b9b4a59ab85cee0f25831cffa27"
+  integrity sha512-MPbdgGzZydWs/L6pZ/Ri8V1GnyzGPCRUfNvCdpQjRXhWCdsYgD6mki9xfvpLAmuZkWIl/Xkm10HRB2BC4SZyew==
 
 discord-api-types@^0.22.0:
   version "0.22.0"
@@ -479,10 +479,10 @@ discord-api-types@^0.24.0:
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.24.0.tgz#9e429b8a1ddb4147134dfb3109093422de7ec549"
   integrity sha512-X0uA2a92cRjowUEXpLZIHWl4jiX1NsUpDhcEOpa1/hpO1vkaokgZ8kkPtPih9hHth5UVQ3mHBu/PpB4qjyfJ4A==
 
-discord.js@13.3.0-dev.1634558789.4dff279:
-  version "13.3.0-dev.1634558789.4dff279"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-13.3.0-dev.1634558789.4dff279.tgz#4aed8f0654b8444cc31ebfef48a18d742d1c9d01"
-  integrity sha512-R7pr/A4QX7Y5WfokfDldQCxFFUKZJvrJPfETzNN717Le0G5wZ9rzXUfnu2bRw4bCRrAuwgvBw1cbY/04k8L+5Q==
+discord.js@13.3.0-dev.1634731396.579569a:
+  version "13.3.0-dev.1634731396.579569a"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-13.3.0-dev.1634731396.579569a.tgz#3137025edac80d741d197dff28bcf6ddaca1868d"
+  integrity sha512-v9GRwWPC3Rq6uAyayU1RmlPkM1zoNRx8ttSZDr+InP8L5rXWnicd7PfwtbYAObAvkBke+Sd10TFGxPR1fO0iJQ==
   dependencies:
     "@discordjs/builders" "^0.6.0"
     "@discordjs/collection" "^0.2.1"
@@ -677,10 +677,10 @@ koa-convert@^2.0.0:
     co "^4.6.0"
     koa-compose "^4.1.0"
 
-koa@^2.13.3:
-  version "2.13.3"
-  resolved "https://registry.yarnpkg.com/koa/-/koa-2.13.3.tgz#a62641ba753ec54bee2c6da1a4f294c5fac35407"
-  integrity sha512-XhXIoR+ylAwqG3HhXwnMPQAM/4xfywz52OvxZNmxmTWGGHsvmBv4NSIhURha6yMuvEex1WdtplUTHnxnKpQiGw==
+koa@^2.13.4:
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/koa/-/koa-2.13.4.tgz#ee5b0cb39e0b8069c38d115139c774833d32462e"
+  integrity sha512-43zkIKubNbnrULWlHdN5h1g3SEKXOEzoAlRsHOTFpnlDu8JlAOZSMJBLULusuXRequboiwJcj5vtYXKB3k7+2g==
   dependencies:
     accepts "^1.3.5"
     cache-content-type "^1.0.0"
@@ -970,10 +970,10 @@ typescript@*:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
   integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
 
-typescript@4.5.0-dev.20211018:
-  version "4.5.0-dev.20211018"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.0-dev.20211018.tgz#73d5984cfc1e63f0039634e3643bea123e4fb95d"
-  integrity sha512-eV0JNL0XLjoM1Du/FDVoGMePuKCc/tdCpP6nVJUZD2a2syyvEyfblLvEUg1Fh9+GUuZGOpk6ospvIUxlfBIfRQ==
+typescript@4.5.0-dev.20211020:
+  version "4.5.0-dev.20211020"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.0-dev.20211020.tgz#937ba5d94005f5328dc550128102fcedd1e5d987"
+  integrity sha512-6arxirkX5H43wKXfvcXSLwoGQx65gYi9SyRzhyrZamrx8x6pFkwZcGq6/HjWsMErahU8ETdDX2Si6WflWX+oXg==
 
 utf-8-validate@^5.0.7:
   version "5.0.7"

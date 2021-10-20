@@ -1,5 +1,6 @@
 node_modules/
-dist/
+# dist/ - Replit builds so slowly, maybe doing this reduces time issues
+tsconfig.tsbuildinfo
 .upm/
 .env
 build/

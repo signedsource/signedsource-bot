@@ -1,7 +1,8 @@
-import { Client } from "discord.js";
+import { ButtonInteraction, Client, CommandInteraction, Role } from "discord.js";
+import PrivateVoice from "../classes/PrivateVoice";
 import Ticket from "../classes/Tickets";
 import config from "../utils/Config";
-import { applyTicketButton, errorEmbed, normalTicketButton } from "../utils/Constants";
+import { errorEmbed } from "../utils/Constants";
 import logger from "../utils/Logger";
 
 export default {
@@ -12,19 +13,19 @@ export default {
 			const asignableRoles: string[] = config.roles.asignableRoles;
 
 			for await (const role of asignableRoles) {
-				const rl = interaction.guild.roles.cache.find(r => r.id === role);
+				const rl = interaction.guild.roles.cache.find((r: Role) => r.id === role);
 
-				if (interaction.member.roles.cache.find(r => r.id == role)) {
+				if (interaction.member.roles.cache.find((r: Role) => r.id == role)) {
 					interaction.member.roles.remove(rl);
 				}
 			}
 
 			for await (const val of interaction.values) {
-				const rl = interaction.guild.roles.cache.find(r => r.id === val);
+				const rl = interaction.guild.roles.cache.find((r: Role) => r.id === val);
 
-				if (!interaction.member.roles.cache.find(r => r.id == val)) {
+				if (!interaction.member.roles.cache.find((r: Role) => r.id == val)) {
 					interaction.member.roles.add(rl);
-				} else if (interaction.member.roles.cache.find(r => r.id == val)) {
+				} else if (interaction.member.roles.cache.find((r: Role) => r.id == val)) {
 					interaction.member.roles.add(rl);
 				}
 			}
@@ -47,6 +48,14 @@ export default {
                 case "closeTicketBtn":
                     await interaction.deferUpdate();
                     new Ticket(interaction).delete(interaction.channel);
+                    break;
+                case "privateVoiceBtn":
+                    await interaction.deferUpdate();
+                    new PrivateVoice(interaction).create(interaction.member, interaction.guild);
+                    break;
+                case "deletePrivateVoiceBtn":
+                    await interaction.deferUpdate();
+                    new PrivateVoice(interaction).delete(interaction.member, interaction.guild);
                     break;
             }
         } else if (interaction.isCommand()) {

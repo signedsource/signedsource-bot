@@ -170,7 +170,12 @@ export default {
                                 .setCustomId('privateVoiceBtn')
                                 .setLabel('Create Voice')
                                 .setEmoji('<:discord_voice_from_VEGA:899709000113868920>')
-                                .setStyle('PRIMARY')
+                                .setStyle('SECONDARY'),
+                            new MessageButton()
+                                .setCustomId('deletePrivateVoiceBtn')
+                                .setLabel('Delete Voice')
+                                .setEmoji('<:trashcan:900421048649015376>')
+                                .setStyle("DANGER")
                         );
 
                     await privateVoiceChannel.bulkDelete(100);

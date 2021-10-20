@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "ES6",
+        "module": "CommonJS",
+        "target": "ESNext",
         "outDir": "dist",
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "lib": [
             "ESNext",
             "ESNext.Array",
@@ -21,7 +21,6 @@
     },
     "include": [
         ".",
-        "src",
         "src/**/*"
     ],
     "exclude": [

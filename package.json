@@ -17,12 +17,12 @@
     "@discordjs/rest": "0.1.1-canary.0",
     "bufferutil": "^4.0.5",
     "chalk": "^4.1.2",
-    "discord-api-types": "0.25.0-next.a507765.1634560226",
-    "discord.js": "13.3.0-dev.1634558789.4dff279",
+    "discord-api-types": "0.25.0-next.a507765.1634733108",
+    "discord.js": "13.3.0-dev.1634731396.579569a",
     "dotenv": "^10.0.0",
     "erlpack": "^0.1.3",
     "graceful-fs": "^4.2.8",
-    "koa": "^2.13.3",
+    "koa": "^2.13.4",
     "node-fetch": "^3.0.0",
     "utf-8-validate": "^5.0.7",
     "winston": "^3.3.3",
@@ -39,6 +39,6 @@
     "@types/utf-8-validate": "^5.0.0",
     "@types/winston": "^2.4.4",
     "node": "16.11.1",
-    "typescript": "4.5.0-dev.20211018"
+    "typescript": "4.5.0-dev.20211020"
   }
 }
