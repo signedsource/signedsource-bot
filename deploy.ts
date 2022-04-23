@@ -26,7 +26,6 @@ const rest = new REST({ version: '9' }).setToken(token);
 
         logger.info("Slash Commands (/) have been deployed");
     } catch (error) {
-        console.log(error);
         logger.error(error);
     }
 })();
