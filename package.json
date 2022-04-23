@@ -7,26 +7,24 @@
   "license": "GPL-3.0-or-later",
   "private": false,
   "scripts": {
-    "build": "npx tsc && cd dist && npx node app.js --no-warning",
+    "build": "npx tsc && cd dist && node app.js --no-warning",
     "onlybuild": "npx tsc",
-    "start": "cd dist && npx node app.js --no-warning",
-    "deploy": "cd dist && npx node deploy"
+    "start": "cd dist && node app.js --no-warning",
+    "deploy": "cd dist && node deploy"
   },
   "dependencies": {
-    "@discordjs/builders": "^0.7.0",
-    "@discordjs/rest": "0.1.1-canary.0",
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
     "bufferutil": "^4.0.5",
     "chalk": "^4.1.2",
-    "discord-api-types": "0.25.0-next.a507765.1634733108",
-    "discord.js": "13.3.0-dev.1634731396.579569a",
+    "discord-api-types": "^0.31.2",
+    "discord.js": "^13.6.0",
     "dotenv": "^10.0.0",
-    "erlpack": "^0.1.3",
     "graceful-fs": "^4.2.8",
     "koa": "^2.13.4",
     "node-fetch": "^3.0.0",
     "utf-8-validate": "^5.0.7",
-    "winston": "^3.3.3",
-    "zlib-sync": "^0.1.7"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
@@ -38,7 +36,6 @@
     "@types/typescript": "^2.0.0",
     "@types/utf-8-validate": "^5.0.0",
     "@types/winston": "^2.4.4",
-    "node": "^16.11.1",
-    "typescript": "4.5.0-dev.20211020"
+    "typescript": "^4.6.3"
   }
 }

@@ -10,10 +10,12 @@ export default {
         .addStringOption(opt => opt
             .setName("message")
             .setDescription("Select the bot message to init")
-            .addChoice("Verification", "verification")
-            .addChoice("Tickets", "tickets")
-            .addChoice("Private Voices", "privatevoice")
-            .addChoice("Roles (Requires CEO)", "roles")
+            .addChoices(
+                { name: "Verification", value: "verification" },
+                { name: "Tickets", value: "tickets" },
+                { name: "Private Voices", value: "privatevoice" },
+                { name: "Roles (Requires CEO)", value: "roles" }
+            )
             .setRequired(true)),
     run: async (interaction: CommandInteraction) => {
         const application: (string | number | boolean) = interaction.options.get("message").value;

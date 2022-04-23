@@ -59,7 +59,7 @@ export default class Ticket {
                     ]
                 }
             ]
-        }).then(async (c: TextChannel) => {
+        }).then(async (c: any) => {
             const closeTicketRow = new MessageActionRow()
                 .addComponents(
                     new MessageButton()

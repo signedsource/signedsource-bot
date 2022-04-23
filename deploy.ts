@@ -1,11 +1,12 @@
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
 import fs from "graceful-fs";
+import path from "path";
 
 import config from "./src/utils/Config";
 import logger from "./src/utils/Logger.js";
 
-require('dotenv').config({ path: `${__dirname}/.env` });
+require('dotenv').config({ path: path.join(__dirname, "..", ".env") });
 const token: string = process.env.TOKEN;
 const cmds: Array<any> = [];
 const cmdFiles = fs.readdirSync(config.commandsDistFolder).filter(f => f.endsWith('.js'));
@@ -25,6 +26,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 
         logger.info("Slash Commands (/) have been deployed");
     } catch (error) {
+        console.log(error);
         logger.error(error);
     }
 })();
