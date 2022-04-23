@@ -44,3 +44,66 @@ export const errorEmbed: MessageEmbed = new MessageEmbed()
     .setDescription("An error ocurred while executing this command, the error has been informed")
     .setColor("RED")
     .setTimestamp();
+
+export const buttonComponentsArray: MessageActionRow[] = [ 
+    new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-1")
+                .setEmoji("1⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-2")
+                .setEmoji("2⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-3")
+                .setEmoji("3⃣")
+                .setStyle("SECONDARY")
+        ),
+    new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-4")
+                .setEmoji("4⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-5")
+                .setEmoji("5⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-6")
+                .setEmoji("6⃣")
+                .setStyle("SECONDARY")
+        ),
+    new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-7")
+                .setEmoji("7⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-8")
+                .setEmoji("8⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-9")
+                .setEmoji("9⃣")
+                .setStyle("SECONDARY")
+        ),
+    new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-done")
+                .setEmoji("☑️")
+                .setStyle("SUCCESS"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-0")
+                .setEmoji("0⃣")
+                .setStyle("SECONDARY"),
+            new MessageButton()
+                .setCustomId("verificationCodeBtn-clear")
+                .setEmoji("<:cx_saumon:967519902246244353>")
+                .setStyle("DANGER")
+        )
+]

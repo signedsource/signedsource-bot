@@ -1,4 +1,5 @@
 export default interface MessagesList extends Object {
+    verificationCodeEmbedTitle: string;
     botStarted: string,
     botStatus: string,
     notEnoughPermissions: string,

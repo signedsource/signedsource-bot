@@ -83,6 +83,7 @@ const config: ConfigType = {
         suggestionsEmbedTitle: "A new suggestion has been submited",
         suggestionsEmbedDescription: "**From:** __%s__\n**Suggestion:** __%s__",
         suggestionSent: "Your suggestion has been sent!",
+        verificationCodeEmbedTitle: "Verification code",
         noExecutedCommands: "The user hasn't run any slash commands",
         isntVerified: "The user isn't verified",
         isVerified: "The user is verified",

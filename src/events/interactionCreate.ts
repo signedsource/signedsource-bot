@@ -1,6 +1,7 @@
-import { ButtonInteraction, Client, CommandInteraction, Role } from "discord.js";
+import { ButtonInteraction, Client, CommandInteraction, Role, SelectMenuInteraction } from "discord.js";
 import PrivateVoice from "../classes/PrivateVoice";
 import Ticket from "../classes/Tickets";
+import Verification from "../classes/Verification";
 import config from "../utils/Config";
 import { errorEmbed } from "../utils/Constants";
 import logger from "../utils/Logger";
@@ -34,8 +35,56 @@ export default {
         } else if (interaction.isButton()) {
             switch (interaction.customId) {
                 case "verificationBtn":
+                    await interaction.deferReply({ ephemeral: true });
+                    new Verification(interaction).start();
+                    break;
+                case "verificationCodeBtn-1":
                     await interaction.deferUpdate();
-                    await interaction.member.roles.add(interaction.guild.roles.cache.find(r => r.id === config.roles.member));
+                    new Verification(interaction).update("1");
+                    break;
+                case "verificationCodeBtn-2":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("2");
+                    break;
+                case "verificationCodeBtn-3":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("3");
+                    break;
+                case "verificationCodeBtn-4":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("4");
+                    break;
+                case "verificationCodeBtn-5":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("5");
+                    break;
+                case "verificationCodeBtn-6":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("6");
+                    break;
+                case "verificationCodeBtn-7":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("7");
+                    break;
+                case "verificationCodeBtn-8":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("8");
+                    break;
+                case "verificationCodeBtn-9":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("9");
+                    break;
+                case "verificationCodeBtn-0":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).update("0");
+                    break;
+                case "verificationCodeBtn-done":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).verify();
+                    break;
+                case "verificationCodeBtn-clear":
+                    await interaction.deferUpdate();
+                    new Verification(interaction).reset();
                     break;
                 case "normalTicketBtn":
                     await interaction.deferUpdate();
