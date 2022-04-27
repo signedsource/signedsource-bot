@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { CommandInteraction, MessageEmbed, TextChannel } from "discord.js";
-import util from "node:util";
+import util from "util";
 import config from "../utils/Config";
 import { noPermsEmbed, suggestionSentEmbed } from "../utils/Constants";
 

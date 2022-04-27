@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import util from "node:util";
+import util from "util";
 import config from "../utils/Config";
 import { noPermsEmbed } from "../utils/Constants";
 

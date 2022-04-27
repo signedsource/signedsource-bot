@@ -1,6 +1,5 @@
-import chalk from "chalk";
 import { Client } from "discord.js";
-import util from "node:util";
+import util from "util";
 import config from "../utils/Config";
 import logger from "../utils/Logger";
 

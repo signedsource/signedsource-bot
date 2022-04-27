@@ -1,5 +1,5 @@
 import { Client, GuildMember, MessageEmbed } from "discord.js";
-import util from "node:util";
+import util from "util";
 import config from "../utils/Config";
 
 export default {
